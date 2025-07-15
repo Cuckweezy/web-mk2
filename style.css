@@ -1,0 +1,33 @@
+body { /* Basically everything */
+    font-family: Arial, sans-serif;
+    background-color: #f0efed;
+    text-align: center;
+    padding: 120px;
+  }
+
+.center-img { /* panels image */
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+  height: auto;
+}
+
+.subtext { /* Basically just "MK II" */
+  text-align: center;
+  font-size: 0.7rem; /* small text */
+  color: #040301; /* optional: soft gray color */
+  margin-top: 6px;
+}
+
+.button-group button {
+  width: 80px; /* optional: set consistent width */
+  height: 40px; 
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: #040301;
+  border: 1px solid #040301;
+  border-radius: 0;
+
+}
