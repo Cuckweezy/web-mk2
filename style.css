@@ -2,21 +2,35 @@ body { /* Basically everything */
     font-family: Arial, sans-serif;
     background-color: #f0efed;
     text-align: center;
-    padding: 120px;
+    padding: 120px 0 0 0; /* "0 0 0" Applys the padding only to the top, so the page doesn't have a scrollbar */
   }
 
 .center-img { /* panels image */
   display: block;
+  position: relative;
   margin: 0 auto;
   max-width: 400px;
   height: auto;
+  transition: transform 1.5s cubic-bezier(1, 0.2, 0.4, 1);
+}
+
+.slide-left {
+  transform: translateX(-35vw); /* Adjust distance as needed */
 }
 
 .subtext { /* Basically just "MK II" */
   text-align: center;
   font-size: 0.7rem; /* small text */
-  color: #040301; /* optional: soft gray color */
-  margin-top: 6px;
+  color: #040301;
+  margin-top: 11px;
+}
+
+.button-group {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Optional: wraps buttons on smaller screens */
 }
 
 .button-group button {
@@ -29,4 +43,141 @@ body { /* Basically everything */
   color: #040301;
   border: 1px solid #040301;
   border-radius: 0;
+}
+
+.button-group button:active {
+  transform: scale(0.95); /* Shrinks the button to 95% */
+  transition: transform 0.1s ease-in-out;
+}
+
+#controls { /* this is for the buttons moving out of the way */
+  transition: transform 1.5s cubic-bezier(1, 0.2, 0.4, 1);
+}
+
+#controls.move-down {
+  transform: translateY(120px); /* moves down by 120px */
+}
+
+.skin-thumb {
+  width: 400px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.skin-thumb:hover {
+  transform: scale(1.05);
+  border-color: #040301;
+}
+
+#skinList {
+  display: grid;                /* use grid instead of flex */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns, equal width */
+  gap: 20px;                   /* space between skins */
+  justify-items: center;       /* center items horizontally */
+  max-width: 100%;
+  opacity: 1;                  /* keep visible when container is shown */
+  pointer-events: auto;
+}
+
+.dark-toggle {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 2px solid #040301;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+#darkModeToggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 2px solid #040301;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  z-index: 1000; /* Make sure it's above other elements */
+}
+
+/* Optional: change style in dark mode */
+body.dark-mode .dark-toggle {
+  border-color: #f0efed;
+}
+
+body.dark-mode {
+  background-color: #040301;
+  color: #f0efed;
+}
+
+body.dark-mode .subtext {
+  color: #f0efed;
+}
+
+body.dark-mode .button-group button {
+  filter: invert(1);
+}
+
+body.dark-mode #mainImage {
+  filter: invert(1);
+}
+
+body.dark-mode #darkModeToggle {
+  filter: invert(1);
+}
+
+body, .button-group button, #darkModeToggle, #skinListContainer, .subtext {
+  transition: all 0.3s ease;
+}
+
+#mainImage { /* This is here basically to dodge the dark mode from fucking up the panel animation */
+  transition:
+    transform 1.5s cubic-bezier(1, 0.2, 0.4, 1),
+    filter 0.3s ease;
+}
+
+#skinListContainer {
+  position: absolute;
+  top: 46.3%; 
+  left: 76%; 
+  transform: translate(-100%, -50%); 
+  width: 880px; 
+  height: 61.4vh;
+  overflow-y: auto;
+  border: 1px solid #040301;
+  background-color: transparent;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  border-radius: 0px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out; 
+  z-index: 900;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+#skinListContainer::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+#skinListContainer.show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+#skinListContainer.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.dark-mode #skinListContainer {
+  background-color: transparent;
+  border-color: #f0efed;
 }

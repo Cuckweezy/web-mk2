@@ -8,14 +8,73 @@
 </head>
 
 <body>
-  <img src="images/panels.png" alt=" " class="center-img" />
-  <p class="subtext">MK II</p>
+  <!-- Main Image -->
+  <img src="images/panels.png" alt=" " class="center-img" id="mainImage" />
 
-  <div class="button-group">
-    <button>Skins</button>
-    <button>Dev</button>
-    <button>Twitter</button>
-    <button>Youtube</button>
-    <button>Twitch</button>
+  <!-- Control Panel -->
+  <div id="controls">
+    <p class="subtext">MK II</p>
+    <div class="button-group">
+      <button id="skinsBtn">Skins</button>
+      <button>Dev</button>
+      <button>Socials</button>
+    </div>
   </div>
+
+  <!-- Skin List Container -->
+  <div id="skinListContainer">
+    <div id="skinList">
+      <a href="skins/azerino nowely/azerino nowely.osk" target="_blank">
+        <img src="skins/azerino nowely/azerino nowely.jpg" alt="azerino nowely" class="skin-thumb" />
+      </a>
+      <a href="skins/tekely/tekely.osk" target="_blank">
+        <img src="skins/tekely/tekely.jpg" alt="tekely" class="skin-thumb" />
+      </a>
+      <a href="skins/ely/-         《ely.osk" target="_blank">
+        <img src="skins/ely/ely.jpg" alt="ely" class="skin-thumb" />
+      </a>
+      <a href="skins/asdasd/asdasd.osk" target="_blank">
+        <img src="skins/asdasd/asdasd.jpg" alt="asdasd" class="skin-thumb" />
+      </a>
+      <a href="skins/topoiely/- Topoiely.osk" target="_blank">
+        <img src="skins/topoiely/- Topoiely.jpg" alt="topoiely" class="skin-thumb" />
+      </a>
+      <a href="skins/ryan fancy edit/- ryan fancy edit.osk" target="_blank">
+        <img src="skins/ryan fancy edit/ryan fancy edit.jpg" alt="ryan fancy edit" class="skin-thumb" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle"></button>
+
+  <!-- Scripts -->
+  <script>
+  const image = document.getElementById("mainImage");
+  const controls = document.getElementById("controls");
+  const skinsBtn = document.getElementById("skinsBtn");
+  const skinListContainer = document.getElementById("skinListContainer");
+  let skinVisible = false;
+
+  skinsBtn.addEventListener("click", () => {
+    image.classList.toggle("slide-left");
+    controls.classList.toggle("move-down");
+
+    if (!skinVisible) {
+      setTimeout(() => {
+        skinListContainer.classList.add("show");
+      }, 1500);
+    } else {
+      skinListContainer.classList.remove("show");
+    }
+
+    skinVisible = !skinVisible;
+  });
+
+  const toggleBtn = document.getElementById("darkModeToggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+</script>
 </body>
+</html>
