@@ -11,7 +11,7 @@ body { /* Basically everything */
   margin: 0 auto;
   max-width: 400px;
   height: auto;
-  transition: transform 1.5s cubic-bezier(1, 0.2, 0.4, 1);
+  transition: transform 1s cubic-bezier(1, 0.2, 0.4, 1);
 }
 
 .slide-left {
@@ -51,7 +51,7 @@ body { /* Basically everything */
 }
 
 #controls { /* this is for the buttons moving out of the way */
-  transition: transform 1.5s cubic-bezier(1, 0.2, 0.4, 1);
+  transition: transform 1s cubic-bezier(1, 0.2, 0.4, 1);
 }
 
 #controls.move-down {
@@ -62,13 +62,13 @@ body { /* Basically everything */
   width: 400px;
   height: auto;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 0px;
+  transition: transform 0.4s ease, border-color 0.4s ease;
   cursor: pointer;
 }
 
 .skin-thumb:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
   border-color: #040301;
 }
 
@@ -136,7 +136,7 @@ body, .button-group button, #darkModeToggle, #skinListContainer, .subtext {
 
 #mainImage { /* This is here basically to dodge the dark mode from fucking up the panel animation */
   transition:
-    transform 1.5s cubic-bezier(1, 0.2, 0.4, 1),
+    transform 1s cubic-bezier(1, 0.2, 0.4, 1),
     filter 0.3s ease;
 }
 
