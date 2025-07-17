@@ -75,7 +75,8 @@ body { /* Basically everything */
 #skinList {
   display: grid;                /* use grid instead of flex */
   grid-template-columns: repeat(2, 1fr); /* 2 columns, equal width */
-  gap: 20px;                   /* space between skins */
+  column-gap: 0;
+  row-gap: 3px;                   /* space between skins */
   justify-items: center;       /* center items horizontally */
   max-width: 100%;
   opacity: 1;                  /* keep visible when container is shown */
@@ -143,14 +144,14 @@ body, .button-group button, #darkModeToggle, #skinListContainer, .subtext {
 #skinListContainer {
   position: absolute;
   top: 46.3%; 
-  left: 76%; 
+  left: 71.8%; 
   transform: translate(-100%, -50%); 
-  width: 880px; 
+  width: 818px; 
   height: 61.4vh;
   overflow-y: auto;
   border: 1px solid #040301;
   background-color: transparent;
-  padding: 16px;
+  padding: 8px 3px; /* top & bottom, left and right  */
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
   border-radius: 0px;
   opacity: 0;
