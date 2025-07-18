@@ -10,31 +10,36 @@
 </head>
 
 <body>
-  <!-- Main Image -->
-  <img src="images/panels.png" alt=" " class="center-img" id="mainImage" />
+  <!-- Main Wrapper starts -->
+  <div class="main-wrapper">
+    <!-- Main Image -->
+    <div class="image-container">
+      <img src="images/panels.png" alt=" " class="center-img" id="mainImage" />
+    </div>
 
-  <!-- Control Panel -->
-  <div id="controls">
-    <p class="subtext">MK II</p>
-    <div class="button-group">
-      <button id="skinsBtn">Skins</button>
-      <button>Dev</button>
+    <!-- Control Panel -->
+    <div id="controls">
+      <p class="subtext">MK II</p>
+      <div class="button-group">
+        <button id="skinsBtn">Skins</button>
+        <button>Dev</button>
 
-      <div style="position: relative; display: inline-block;">
-        <button id="socialsBtn">Socials</button>
-        <div id="socialIcons">
-          <a href="https://osu.ppy.sh/users/7154358" target="_blank">
-            <img src="images/osu! icon.png" alt="osu!" class="social-icon" />
-          </a>
-          <a href="https://x.com/Cuckweezy" target="_blank"><i class="bi bi-twitter-x social-icon"></i></a>
-          <a href="https://www.twitch.tv/cuckweezy" target="_blank"><i class="bi bi-twitch social-icon"></i></a>
-          <a href="https://www.youtube.com/@Cuckweezy" target="_blank"><i class="bi bi-youtube social-icon"></i></a>
-          <a href="https://github.com/Cuckweezy" target="_blank"><i class="bi bi-github social-icon"></i></a>
+        <div style="position: relative; display: inline-block;">
+          <button id="socialsBtn">Socials</button>
+          <div id="socialIcons">
+            <a href="https://osu.ppy.sh/users/7154358" target="_blank">
+              <img src="images/osu! icon.png" alt="osu!" class="social-icon" />
+            </a>
+            <a href="https://x.com/Cuckweezy" target="_blank"><i class="bi bi-twitter-x social-icon"></i></a>
+            <a href="https://www.twitch.tv/cuckweezy" target="_blank"><i class="bi bi-twitch social-icon"></i></a>
+            <a href="https://www.youtube.com/@Cuckweezy" target="_blank"><i class="bi bi-youtube social-icon"></i></a>
+            <a href="https://github.com/Cuckweezy" target="_blank"><i class="bi bi-github social-icon"></i></a>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
+  <!-- Main Wrapper ends -->
 
   <!-- Skin List Container -->
   <div id="skinListContainer">
@@ -64,41 +69,6 @@
   <button id="darkModeToggle"></button>
 
   <!-- Scripts -->
-  <script>
-  const image = document.getElementById("mainImage");
-  const controls = document.getElementById("controls");
-  const skinsBtn = document.getElementById("skinsBtn");
-  const skinListContainer = document.getElementById("skinListContainer");
-  let skinVisible = false;
-
-  skinsBtn.addEventListener("click", () => {
-    image.classList.toggle("slide-left");
-    controls.classList.toggle("move-down");
-
-    if (!skinVisible) {
-      setTimeout(() => {
-        skinListContainer.classList.add("show");
-      }, 1500);
-    } else {
-      skinListContainer.classList.remove("show");
-    }
-
-    skinVisible = !skinVisible;
-  });
-
-  const toggleBtn = document.getElementById("darkModeToggle");
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
-
-  const socialsBtn = document.getElementById("socialsBtn");
-  const socialIcons = document.getElementById("socialIcons");
-  let socialsVisible = false;
-
-  socialsBtn.addEventListener("click", () => {
-    socialIcons.classList.toggle("show");
-    socialsVisible = !socialsVisible;
-});
-</script>
+  <script src="script.js"></script>
 </body>
 </html>

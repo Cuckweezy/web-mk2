@@ -2,20 +2,41 @@ body { /* Basically everything */
     font-family: Arial, sans-serif;
     background-color: #f0efed;
     text-align: center;
-    padding: 120px 0 0 0; /* "0 0 0" Applys the padding only to the top, so the page doesn't have a scrollbar */
-  }
+    padding: 0; /* remove hardcoded 120px top padding */
+    margin: 0;
+    height: 100vh; /* occupy full screen height */
+    overflow: hidden; /* prevent scrolling */
+}
 
-.center-img { /* panels image */
-  display: block;
-  position: relative;
-  margin: 0 auto;
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* fills the screen */
+  box-sizing: border-box;
+}
+
+.center-img {
+  width: 90%;
   max-width: 400px;
   height: auto;
+  margin: 0 auto;
+  display: block;
   transition: transform 1s cubic-bezier(1, 0.2, 0.4, 1);
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
 .slide-left {
-  transform: translateX(-35vw); /* Adjust distance as needed */
+  transform: translateX(-160%);
 }
 
 .subtext { /* Basically just "MK II" */
@@ -146,7 +167,7 @@ body, .button-group button, #darkModeToggle, #skinListContainer, .subtext {
   top: 46.3%; 
   left: 71.8%; 
   transform: translate(-100%, -50%); 
-  width: 818px; 
+  width: 43.4vw;
   height: 61.4vh;
   overflow-y: auto;
   border: 1px solid #040301;
@@ -171,6 +192,7 @@ body, .button-group button, #darkModeToggle, #skinListContainer, .subtext {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
+  overflow-y: auto; /* allow scroll inside container */
 }
 
 #skinListContainer.visible {
