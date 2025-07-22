@@ -21,8 +21,10 @@
 
   const toggleBtn = document.getElementById("darkModeToggle");
   toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 
   const socialsBtn = document.getElementById("socialsBtn");
   const socialIcons = document.getElementById("socialIcons");
@@ -31,4 +33,11 @@
   socialsBtn.addEventListener("click", () => {
     socialIcons.classList.toggle("show");
     socialsVisible = !socialsVisible;
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
 });

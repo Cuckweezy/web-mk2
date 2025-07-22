@@ -123,10 +123,9 @@ body { /* Basically everything */
   border: 2px solid #040301;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
-  z-index: 1000; /* Make sure it's above other elements */
+  z-index: 1000; 
 }
 
-/* Optional: change style in dark mode */
 body.dark-mode .dark-toggle {
   border-color: #f0efed;
 }
