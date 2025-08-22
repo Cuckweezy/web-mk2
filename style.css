@@ -241,3 +241,13 @@ body.dark-mode #skinListContainer {
 body.dark-mode .social-icon {
   filter: invert(1);
 }
+
+#darkModeToggle::before {
+  content: "☾"; /* or use an icon */
+  font-size: 18px;
+  display: block;
+  text-align: center;
+}
+body.dark-mode #darkModeToggle::before {
+  content: "☀";
+}
