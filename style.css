@@ -251,3 +251,40 @@ body.dark-mode .social-icon {
 body.dark-mode #darkModeToggle::before {
   content: "☀";
 }
+
+#valentineBtn {
+    position: fixed;
+    top: 16px;
+    right: 60px; /* next to dark mode toggle */
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: 2px solid #040301;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#valentineBtn svg {
+    width: 18px;
+    height: 18px;
+}
+
+#valentineBtn:hover {
+    background-color: #040301;
+    color: #f0efed;
+    transform: scale(1.1);
+}
+
+/* Dark mode adaptation */
+body.dark-mode #valentineBtn {
+    border-color: #f0efed;
+}
+
+body.dark-mode #valentineBtn:hover {
+    background-color: #f0efed;
+    color: #040301;
+}

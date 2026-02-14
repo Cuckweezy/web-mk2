@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>❤️ For My Love ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom right, #ffb6c1, #ff69b4);
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+        transition: background 0.6s ease;
+    }
+
+    .dark-mode {
+        background: linear-gradient(to bottom right, #000000, #1a1a1a);
+    }
+
+    .shake {
+        animation: shake 0.3s infinite;
+    }
+
+    @keyframes shake {
+        0% { transform: translate(2px, 2px); }
+        25% { transform: translate(-2px, -2px); }
+        50% { transform: translate(2px, -2px); }
+        75% { transform: translate(-2px, 2px); }
+        100% { transform: translate(2px, 2px); }
+    }
+
+    .flash {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .card {
+    max-width: 600px;
+    width: 90%;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    text-align: center;      /* fallback */
+}
+
+    h1 {
+        color: #ff1493;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        position: relative;
+        height: 120px;
+    }
+
+    button {
+        padding: 12px 25px;
+        border-radius: 25px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        position: absolute;
+    }
+
+    #yesBtn {
+        background-color: #ff4d88;
+        color: white;
+        left: 60px;
+        transform: scale(1);
+    }
+
+    #noBtn {
+        background-color: #ddd;
+        color: #333;
+        right: 60px;
+    }
+
+    #loveMessage {
+        opacity: 0;
+        margin-top: 25px;
+        font-size: 18px;
+        color: #d1005c;
+        transition: opacity 1s ease;
+    }
+
+    .heart {
+    position: absolute;
+    animation: floatUp 3s linear forwards;
+}
+
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-300px); opacity: 0; }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+    .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="flash" id="flash"></div>
+
+<div class="card">
+    <h1>💕 Happy Valentine's Day 💕</h1>
+    <p>
+        Please don't do this with me in the room...
+    </p>
+
+    <h2>💖 Will you be my Valentine? 💖</h2>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💕</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+
+    <div id="loveMessage">
+        MY POOKIE SAID YES!!! 🥰<br><br>
+        Words can't describe how happy you make me. I've spent this last year waking up with more love and appreciation than I ever thought I could have.
+        There hasn't been a moment where I didn't want to be with you. You're the kindest, funniest, most beautiful woman I have ever met, and I genuinely can't imagine a life without you. 
+        You've become attractive in more ways than I can even describe. I honestly have spent so much time just admiring you when we spend time together. 
+        I love the way you look at me even when I say something dumb. I love the way you take such care to do things the right way, even when its not your problem. I love the way you treat others so nicely, not because you want to, but because you care. I love the way you smile, I find myself doing anything just to try and make you smile. I love the way you laugh, you laugh wholeheartedly at the dumbest things and it always makes me laugh.
+        I love the way you reassure me whenever I start doubting myself, you have always been there when I needed you. 
+        <br><br>I love you, and happy Valentine's day sweetheart.❤️
+    </div>
+</div>
+
+<script>
+    const body = document.body;
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const loveMessage = document.getElementById("loveMessage");
+    const flash = document.getElementById("flash");
+
+    let yesScale = 1;
+
+    noBtn.addEventListener("mouseover", () => {
+
+        // Change button style
+        noBtn.innerHTML = "Don't you FUCKING dare 😤";
+        noBtn.style.backgroundColor = "black";
+        noBtn.style.color = "white";
+
+        // Dark mode + shake
+        body.classList.add("dark-mode");
+        body.classList.add("shake");
+
+        // Lightning flash
+        flash.style.opacity = "0.8";
+        setTimeout(() => flash.style.opacity = "0", 100);
+
+        // Move NO button
+        const x = Math.random() * 300;
+        const y = Math.random() * 80;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        // Grow YES button
+        yesScale += 0.1;
+        yesBtn.style.transform = `scale(${yesScale})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+
+    // Restore romance
+    body.classList.remove("dark-mode");
+    body.classList.remove("shake");
+
+    // Hide buttons
+    noBtn.classList.add("fade-out");
+    yesBtn.classList.add("fade-out");
+
+    setTimeout(() => {
+    noBtn.style.display = "none";
+    yesBtn.style.display = "none";
+    }, 500);
+
+    // Show message
+    loveMessage.style.opacity = "1";
+
+    createHearts();
+    createConfetti();
+});
+
+    function createHearts() {
+        for (let i = 0; i < 25; i++) {
+            let heart = document.createElement("div");
+            heart.innerHTML = "💖";
+            heart.className = "heart";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "0px";
+            heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 3000);
+        }
+    }
+
+    function createConfetti() {
+    const colors = ["#ff4d88", "#ffcc00", "#00ccff", "#66ff66", "#ff66ff"];
+
+    for (let i = 0; i < 60; i++) {
+        let confetti = document.createElement("div");
+        confetti.className = "confetti";
+
+        confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        // Random horizontal start
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+
+        // Random animation duration
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        // Random size
+        let size = Math.random() * 8 + 6;
+        confetti.style.width = size + "px";
+        confetti.style.height = size + "px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000);
+    }
+}
+</script>
+
+</body>
+</html>
